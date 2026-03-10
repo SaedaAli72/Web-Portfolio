@@ -79,10 +79,42 @@ body {
 
 .navbar-toggler {
   border: 1px solid var(--border-strong);
+  background: rgba(0, 229, 255, 0.08);
   color: var(--cyan);
-  padding: 0.35rem 0.55rem;
+  padding: 0.4rem 0.65rem;
+  line-height: 1;
 }
-.navbar-toggler:focus { box-shadow: 0 0 0 3px var(--cyan-glow); }
+.navbar-toggler:focus { box-shadow: 0 0 0 3px var(--cyan-glow); outline: none; }
+.navbar-toggler .bi {
+  color: var(--cyan);
+  font-size: 1.2rem;
+  display: block;
+}
+
+/* Mobile dropdown panel */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(8, 12, 20, 0.98);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-top: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  }
+  .navbar-nav { gap: 0.25rem !important; }
+  .nav-link {
+    padding: 0.65rem 1rem !important;
+    border-radius: 8px;
+    font-size: 0.85rem;
+  }
+  .nav-link:hover { background: var(--cyan-subtle); }
+  .nav-cta {
+    margin-top: 0.5rem;
+    text-align: center;
+    display: block;
+  }
+  .nav-link::after { display: none; }
+}
 
 .nav-link {
   color: var(--text-secondary) !important;
@@ -793,7 +825,7 @@ body {
 [data-aos-delay="400"] { transition-delay: 0.4s; }
 
 /* ════════════════════════
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ════════════════════════ */
 @media (max-width: 991.98px) {
   .hero-section { text-align: center; }
@@ -802,10 +834,53 @@ body {
   .about-avatar-wrap { margin-bottom: 2rem; }
 }
 
+/* ════════════════════════
+   RESPONSIVE — MOBILE
+════════════════════════ */
 @media (max-width: 575.98px) {
   .section-pad { padding: 4rem 0; }
-  .hero-name { letter-spacing: -1px; }
+
+  /* Hero */
+  .hero-name {
+    font-size: 2.6rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .hero-tagline {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+  .hero-greeting { font-size: 0.82rem; }
+  .hero-title-wrap { font-size: 0.85rem; }
+
+  /* Buttons — stack vertically, full width */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .btn-primary-custom,
+  .btn-outline-custom {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 0.75rem 1.2rem;
+  }
+  .btn-primary-custom.me-3 { margin-right: 0 !important; }
+
+  /* Skills */
   .skill-category { padding: 1.2rem; }
+  .skill-badge { font-size: 0.72rem; padding: 0.35rem 0.7rem; }
+
+  /* Projects */
+  .project-card { padding: 1.3rem; }
+
+  /* Contact */
+  .contact-card { padding: 1.5rem 1rem; }
+
+  /* About stats */
+  .stat-num { font-size: 1.3rem; }
 }
 
 /* ── Profile photo (replaces placeholder) ── */
