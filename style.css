@@ -716,10 +716,6 @@ body {
   border-top: 1px solid var(--border);
   padding: 2.5rem 0;
 }
-
-  .avatar-img { 
-    width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-strong); }
-
 .footer-brand {
   font-family: var(--mono);
   font-size: 1.1rem;
@@ -810,4 +806,16 @@ body {
   .section-pad { padding: 4rem 0; }
   .hero-name { letter-spacing: -1px; }
   .skill-category { padding: 1.2rem; }
+}
+
+/* ── Profile photo (replaces placeholder) ── */
+.avatar-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-strong);
+  box-shadow: 0 0 40px var(--cyan-glow);
+  position: relative;
+  z-index: 1;
 }
