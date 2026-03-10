@@ -58,8 +58,17 @@ body {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   transition: background var(--transition), padding var(--transition);
+}
+
+#mainNav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 #mainNav.scrolled {
@@ -154,7 +163,7 @@ body {
 .hero-section {
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow: clip; /* clip instead of hidden — doesn't affect fixed children like navbar */
   background: var(--bg-primary);
 }
 
@@ -368,16 +377,17 @@ body {
 ════════════════════════ */
 .about-avatar-wrap {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 2rem 0 3rem;
 }
 
 .avatar-ring {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   border: 2px dashed var(--border-strong);
   animation: spin 20s linear infinite;
@@ -393,8 +403,8 @@ body {
 }
 
 .avatar-placeholder {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: var(--bg-card);
   border: 2px solid var(--border-strong);
@@ -408,8 +418,10 @@ body {
 
 .avatar-badge {
   position: absolute;
-  bottom: 20px;
-  right: 10%;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
   background: var(--bg-card);
   border: 1px solid rgba(40, 200, 100, 0.4);
   color: #28c840;
@@ -418,6 +430,7 @@ body {
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  z-index: 2;
 }
 .avatar-badge i { color: #28c840; }
 
@@ -883,14 +896,21 @@ body {
   .stat-num { font-size: 1.3rem; }
 }
 
-/* ── Profile photo (replaces placeholder) ── */
+/* ── Profile photo ── */
 .avatar-img {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border-strong);
   box-shadow: 0 0 40px var(--cyan-glow);
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 575.98px) {
+  .avatar-ring  { width: 220px; height: 220px; }
+  .avatar-img,
+  .avatar-placeholder { width: 170px; height: 170px; }
+  .about-avatar-wrap { padding: 1.5rem 0 3rem; }
 }
